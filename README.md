@@ -106,10 +106,9 @@ streamlit run app.py
 ```
 project-folder
 │
-├── app.py
-├── requirements.txt
 ├── README.md
-└── assets/
+├── app.py
+└── requirements.txt
 ```
 
 ---
