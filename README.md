@@ -1,130 +1,106 @@
-# 🍽️ Fridge 2 Feast
+# 🍽️ Fridge2Feast
 
-**From fridge to feast — turn the ingredients you already have into AI-generated recipes and visualize the final dish instantly.**
+**From fridge to feast: snap a photo of your fridge and get a personalized recipe with nutrition info and a picture of the finished dish.**
 
-Fridge 2 Feast is an AI-powered web app that generates recipes from ingredients you already have and visualizes the final dish using AI-generated images. The goal is to help users quickly decide what to cook while reducing food waste.
+Fridge2Feast is an AI-powered web app that detects the ingredients in a photo of your fridge, then generates a recipe tailored to your cuisine style and health goals. It helps people decide what to cook quickly while reducing food waste.
 
----
+**[▶ Watch the 4-minute demo](https://youtu.be/c8Eyi7PfzDc)**
 
-# 💡 Problem
+> **Note:** The live app is offline because the API keys it used have expired. The demo video shows the full app working. To run it yourself, add your own keys (see Setup).
 
-Many people struggle to decide what to cook with the ingredients already in their fridge. This often leads to wasted food, unnecessary grocery purchases, and time spent searching for recipes online.
-
----
-
-# 🚀 Features
-
-- Generate recipes from ingredients you already have
-- Step-by-step cooking instructions
-- AI-generated image of the finished dish
-- Simple and interactive web interface
-- Fast AI responses using the Gemini API
+![Screenshot](fridge2fst.png)
+<!-- Add 1-2 screenshots to a /docs folder and update the path -->
 
 ---
 
-# 🧠 How It Works
+## 💡 Problem
 
-1. The user enters ingredients they currently have available.
-2. The app queries the **Spoonacular API** to retrieve recipes related to those ingredients.
-3. The selected recipe and ingredients are sent to the **Gemini AI model**.
-4. Gemini generates:
-   - A refined recipe
-   - Step-by-step cooking instructions
-5. The system then generates an AI image showing what the final dish could look like.
-
-This allows users to quickly discover meals they can cook without manually searching through recipes.
+Many people struggle to decide what to cook with what's already in their fridge. This leads to wasted food, unnecessary grocery trips, and time spent searching for recipes online.
 
 ---
 
-# 🛠 Tech Stack
+## 🚀 Features
 
-### Frontend
-- Streamlit
-
-### Backend
-- Python
-
-### APIs
-- **Google Gemini API** – generates recipes and AI images
-- **Spoonacular API** – retrieves ingredient-based recipe data
-
-### Libraries
-- streamlit  
-- google-generativeai  
-- pillow  
+- **Fridge photo recognition:** upload one photo and Gemini Vision detects the ingredients, so there's no typing
+- **Personalized recipes:** choose a cuisine style and your health goals
+- **Two recipe modes:** AI-generated recipes or pre-made recipes
+- **Nutritional analysis** and **cooking times** for every recipe
+- **Step-by-step cooking instructions**
+- **AI-generated image** of the finished dish
+- **Fast:** a full recipe in about 25 seconds
 
 ---
 
-# ⚙️ Installation & Setup
+## 🧠 How It Works
 
-## 1. Clone the repository
-
-```bash
-git clone https://github.com/yourusername/your-repository-name.git
-cd your-repository-name
-```
-
-## 2. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-## 3. Add your API key
-
-Create a file called:
-
-```
-.streamlit/secrets.toml
-```
-
-Inside the file add:
-
-```
-GEMINI_API_KEY="your_api_key_here"
-SPOONACULAR_API_KEY = "8c0df04318ca46b2884b4c26db6efa83"
-```
-
-## 4. Run the application
-
-```bash
-streamlit run app.py
-```
+1. The user uploads a photo of their fridge.
+2. **Gemini 2.5 Flash Vision** detects the ingredients in the photo.
+3. The user selects a cuisine style, health goals, and AI-generated or pre-made recipes.
+4. For pre-made recipes, the app queries the **Spoonacular API** for matches.
+5. **Gemini** produces the final recipe with step-by-step instructions, nutritional analysis, and cooking time.
+6. The app generates an image of what the finished dish could look like.
 
 ---
 
-# 🎥 Demo Video
+## 🛠 Tech Stack
 
-4-minute demo video explaining the project:
-
-[https://youtube.com/your-demo-video-link](https://youtu.be/c8Eyi7PfzDc)
+- **Frontend:** Streamlit
+- **Backend:** Python
+- **APIs:** Google Gemini API (vision, recipes, images), Spoonacular API (recipe data)
+- **Libraries:** streamlit, google-generativeai, pillow, requests
 
 ---
 
-# 📂 Project Structure
+## ⚙️ Setup
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/[YOUR-USERNAME]/[REPO-NAME].git
+   cd [REPO-NAME]
+   ```
+
+2. Install dependencies
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Add your own API keys in `.streamlit/secrets.toml` (see `.streamlit/secrets.toml.example`)
+   ```toml
+   GEMINI_API_KEY = "your_api_key_here"
+   SPOONACULAR_API_KEY = "your_api_key_here"
+   ```
+
+4. Run the app
+   ```bash
+   streamlit run app.py
+   ```
+
+---
+
+## 📂 Project Structure
 
 ```
-project-folder
-│
-├── README.md
+Fridge2Feast
 ├── app.py
-└── requirements.txt
+├── requirements.txt
+├── .streamlit/
+│   └── secrets.toml.example
+└── README.md
 ```
 
 ---
 
-# 🔮 Future Improvements
+## 🔮 Future Improvements
 
-- Add nutritional analysis for recipes
-- Support dietary preferences (vegan, halal, gluten-free)
-- Allow users to save favorite recipes
-- Improve UI and mobile responsiveness
+- Support more dietary restrictions (vegan, halal, gluten-free, allergies)
+- Let users save favorite recipes
+- Improve the UI and mobile responsiveness
 
 ---
 
-# 👨‍💻 Team
+## 👨‍💻 Team
 
-- Wasi Ullah  
-- Devarya Roy  
-- Armin Farhad  
-- Anusihvan Pratheepan
+- Wasi Ullah
+- Devarya Roy
+- Armin Farhad
+- Anushivan Pratheepan
